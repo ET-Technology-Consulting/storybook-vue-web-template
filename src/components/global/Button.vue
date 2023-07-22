@@ -36,20 +36,19 @@ const props = withDefaults(defineProps<{
 }>(), { primary: true, size: 'medium', rounded: false, variant: 'plained', shadow: false });
 
 const emit = defineEmits<{
-  (e: 'click', id: number): void;
+  (e: 'click'): void;
 }>();
 
 const classes = computed(() => ({
-  'bg-red-200': true,
   'px-2 py-1': true,
   'text-sm': props.size ==='small',
   'text-base': props.size ==='medium',
   'text-lg': props.size ==='large',
   'rounded': props.rounded,
   [`bg-emerald-600 text-emerald-100`]: props.primary === true && props.variant === 'plained',
-  [`bg-zinc-900 text-zinc-100`]: props.primary === false && props.variant === 'plained',
+  [`bg-zinc-900 text-zinc-100 dark:bg-zinc-100 dark:text-zinc-900`]: props.primary === false && props.variant === 'plained',
   [`bg-zinc-100 text-emerald-600 ring-1 ring-inset ring-emerald-600`]: props.primary === true && props.variant === 'outlined',
-  [`bg-zinc-100 text-zinc-900 ring-1 ring-inset ring-zinc-900`]: props.primary === false && props.variant === 'outlined',
+  [`bg-zinc-100 text-zinc-900 ring-1 ring-inset ring-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 dark:ring-zinc-100`]: props.primary === false && props.variant === 'outlined',
   [`shadow-md`]: props.shadow,
 }));
 

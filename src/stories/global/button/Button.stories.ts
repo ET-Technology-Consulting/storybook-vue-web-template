@@ -23,6 +23,15 @@ type Story = StoryObj<typeof meta>;
  * See https://storybook.js.org/docs/vue/api/csf
  * to learn how to use render functions.
  */
+
+export const Default: Story = {
+  args: {
+    primary: false,
+    label: "I'm a button",
+    variant: "plained",
+  },
+};
+
 export const Primary: Story = {
   args: {
     primary: true,
